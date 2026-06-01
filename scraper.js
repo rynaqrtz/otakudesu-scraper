@@ -249,24 +249,6 @@ const scraper = async (type, param) => {
       data = parseJadwal(cheerio.load(html), knownTitles);
       break;
 
-    case 'all':
-      const [homeHtml, ongoingHtml, genreHtml, jadwalHtml] = await Promise.all([
-        fetchHTML(`${BASE_URL}/`),
-        fetchHTML(`${BASE_URL}/ongoing-anime/`),
-        fetchHTML(`${BASE_URL}/genre-list/`),
-        fetchHTML(`${BASE_URL}/jadwal-rilis/`),
-      ]);
-      const homeData = parseList(cheerio.load(homeHtml));
-      const ongoingData = parseList(cheerio.load(ongoingHtml));
-      const allTitles = [...homeData.map((a) => a.title), ...ongoingData.map((a) => a.title)];
-      data = {
-        home: homeData,
-        ongoing: ongoingData,
-        genre_list: parseGenreList(cheerio.load(genreHtml)),
-        jadwal: parseJadwal(cheerio.load(jadwalHtml), allTitles),
-      };
-      break;
-
     default:
       throw new Error(`Unknown type: ${type}`);
   }
