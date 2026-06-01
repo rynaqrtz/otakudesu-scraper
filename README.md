@@ -30,9 +30,8 @@
 | `genre` | Daftar genre | 36 genre |
 | `batch` | Link download batch | 3 resolusi |
 | `jadwal` | Jadwal rilis per hari | 7 hari, total ~100 judul |
-| `all` | Gabungan home+ongoing+genre+jadwal | ± 200 entri |
 
-> **Total endpoint:** 9  
+> **Total endpoint:** 8
 > **By:** [rynaqrtz](https://github.com/rynaqrtz)
 
 ---
